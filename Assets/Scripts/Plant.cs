@@ -41,9 +41,11 @@ public class Plant : MonoBehaviour // The generic class for all plant type objec
 
     // Color
     // Can use 180 degree additions to get complementary colors of each Hue
+    MeshRenderer treeMesh;
+    Material[] leafMaterials;
 
     // Roots
-    public float rootRadius = 1f;
+    public static float rootRadius = 1f;
 
 
     // Leaves
@@ -59,15 +61,21 @@ public class Plant : MonoBehaviour // The generic class for all plant type objec
     void Awake()
     {
         instantiatedAt = MyTime.InstantiatedAt();
+        treeMesh = GetComponent<MeshRenderer>();
+        leafMaterials = treeMesh.materials;
         absHeight = 1f;
         absWidth = .25f;
         currOffset = 0f;
+        Color rgba = new Color(MyMath.GetRandomFloat(),MyMath.GetRandomFloat(),MyMath.GetRandomFloat(),1f);
+        leafMaterials[0].color = rgba;
+        treeMesh.materials = leafMaterials;
     }
 
     void Update()
 
     {
         timeAlive = MyTime.seconds - instantiatedAt;
+        // rootRadius = transform.localScale.x;
     }
 
 

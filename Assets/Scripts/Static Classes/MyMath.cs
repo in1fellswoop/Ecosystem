@@ -100,6 +100,15 @@ public class MyMath : MonoBehaviour
         return val < threshold;
     }
 
+    public static float DistanceMagnitude2D(Vector3 pointA, Vector3 pointB)
+    {
+        float aSquared = Mathf.Pow(pointB.x - pointA.x, 2);
+        float bSquared = Mathf.Pow(pointB.z - pointA.z, 2);
+        float magnitude = Mathf.Pow(aSquared + bSquared, .5f);
+
+        return magnitude;
+    }
+
 
 
     private static float PseudoNormalDistribution(float x_value)
@@ -113,6 +122,9 @@ public class MyMath : MonoBehaviour
 
         return probability;
     }
+
+
+    
 
 
 

@@ -93,23 +93,6 @@ MonoBehaviour:
   thirst: 0
   yGrowthConstant: 0
   xzGrowthConstant: 0
-  rootRadius: 1
   timeAlive: 0
   absHeight: 0
   absWidth: 0
---- !u!58 &-2452176246373234341
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4119997846926671604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.507278}
-  serializedVersion: 2
-  m_Radius: 0.49999806

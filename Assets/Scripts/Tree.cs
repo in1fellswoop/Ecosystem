@@ -18,6 +18,7 @@ public class Tree : Plant
     {
         ManageGrowth(10f, .5f);
         energy += .02f;
-        print(transform.localScale.y);
+        // print(transform.localScale.y);
+        print(rootRadius);
     }
 }

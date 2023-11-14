@@ -15,6 +15,8 @@ public class EcosystemManager : MonoBehaviour
     [Range(0f,100f)]
     public float timeScale;
 
+    public List<Vector3> treeSpawnPoints = new List<Vector3>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,11 +86,34 @@ public class EcosystemManager : MonoBehaviour
                 Vector3 coord = new Vector3 (i+xOffset, 0f, j+zOffset);
 
                 // print(coord);
-                if (UnityEngine.Random.Range(0f,1f) < plantDensity)
+                if (UnityEngine.Random.Range(0f,1f) > plantDensity)
                 {
-                    Instantiate(plantTypeToSpawn, coord, Quaternion.identity);                    
+                    continue;                  
+                }
+
+                if (!OverlapCheck(treeSpawnPoints, coord, Plant.rootRadius))
+                {
+                    treeSpawnPoints.Add(coord);
+                    Instantiate(plantTypeToSpawn, coord, Quaternion.identity);
                 }
             }
         }
     }
+
+    public bool OverlapCheck(List<Vector3> objCoord, Vector3 currCoord, float distThreshold)
+    {
+        // bool tooClose = false;
+        float distance = 0f;
+        foreach (Vector3 coord in objCoord)
+        {
+            distance = MyMath.DistanceMagnitude2D(currCoord, coord);
+            if (distance <= distThreshold)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
