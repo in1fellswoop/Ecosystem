@@ -16,8 +16,11 @@ public class Tree : Plant
     // Update is called once per frame
     void Update()
     {
-        ManageGrowth(10f, .5f);
-        energy += .02f;
+        Photosynthesize();
+        Drink();
+        // Thirst();
+        ManageGrowth();
+        // energy += .02f; // This is why energy increases regardless of timescale
         // print(transform.localScale.y);
         print(rootRadius);
     }

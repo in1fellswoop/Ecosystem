@@ -109,6 +109,21 @@ public class MyMath : MonoBehaviour
         return magnitude;
     }
 
+    public static float CalcVol(Vector3 objScale)
+    {
+        float vol = objScale.x * objScale.y * objScale.z;
+
+        return vol;
+    }
+
+    public static float CalcArea(Vector3 objScale)
+    {
+        // Arbitrarily choosing x and y
+        float area = objScale.x * objScale.y;
+
+        return area;
+    }
+
 
 
     private static float PseudoNormalDistribution(float x_value)
