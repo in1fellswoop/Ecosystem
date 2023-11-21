@@ -124,6 +124,15 @@ public class MyMath : MonoBehaviour
         return area;
     }
 
+    public static float CalcAreaOfCone(Vector3 objScale)
+    {
+        float radius = objScale.x * .5f;
+        float insideRoot = Mathf.Pow(objScale.y,2) + Mathf.Pow(radius,2);
+        float area = (Mathf.PI * radius)*(radius + Mathf.Pow(insideRoot, .5f));
+
+        return area;
+    }
+
 
 
     private static float PseudoNormalDistribution(float x_value)
